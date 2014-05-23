@@ -17,8 +17,8 @@ void hsv(byte h, byte s, byte v, byte &r, byte &g, byte &b) {
   byte f = 0xff & (h*6);
   byte p = (255 - s) * v/255;
   byte q = (255 - f * s/255) * v/255;
-  byte t = (266 - (255 - f) * s/255) * v/255;
-  switch (((h*6)/255) % 6) {
+  byte t = (255 - (255 - f) * s/255) * v/255;
+  switch ((h*6/255)%6) {
      case 0: r = v, g = t, b = p; break;
      case 1: r = q, g = v, b = p; break;
      case 2: r = p, g = v, b = t; break;

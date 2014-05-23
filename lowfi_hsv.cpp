@@ -18,7 +18,7 @@ void hsv(byte h, byte s, byte v, byte &r, byte &g, byte &b) {
   byte p = (255 - s) * v/255;
   byte q = (255 - f * s/255) * v/255;
   byte t = (255 - (255 - f) * s/255) * v/255;
-  switch ((h*6/255)%6) {
+  switch (h*6/256) {
      case 0: r = v, g = t, b = p; break;
      case 1: r = q, g = v, b = p; break;
      case 2: r = p, g = v, b = t; break;
@@ -38,7 +38,7 @@ void hue_to_rgb(byte h, byte &r, byte &g, byte &b) {
     situations where memory is scare.
    */
   byte f = 0xff & (h*6);
-  switch (((h*6)/255) % 6) {
+  switch (h*6/256) {
      case 0: r = 255,   g = f,     b = 0; break;
      case 1: r = 255-f, g = 255,   b = 0; break;
      case 2: r = 0,     g = 255,   b = f; break;

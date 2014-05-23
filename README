@@ -1,0 +1,54 @@
+
+--- About ---
+
+This project contains two methods for converting from HSV color space
+to RGB values.  The use that engendered these two functions was to
+bring the memory usage down as much as possible when used in Arduino
+sketches.
+
+As such, this project implements hsv conversion without using floating
+point variables, and should be servicable in a number of unusual
+constraints.
+
+
+
+
+--- Usage ---
+
+
+In situations where saturation and value are assumed to be their
+maximum values, use hue_to_rgb(...) for lower memory usage!  For other
+situations, use hsv(...).
+
+In both cases, all arguments are bytes (numerical values from 0 to
+255), and the last three arguments are where to save the result.
+
+
+So for example:
+
+byte r;
+byte g;
+byte b;
+byte h = 128;
+byte s = 255;
+byte v = 14;
+
+hsv(h, s, v, r, g, b);
+
+
+
+The hue_to_rgb(...) function works the same, but lacks the s and v
+params.
+
+
+
+
+--- Public Domain ---
+
+This project was put together by Aeva Palecek, and she made it
+available to you under Creative Commons's "CC0" legal tool.  Therefor
+in most legal jurisdictions, this code is public domain, and you are
+free to attempt what you will with it.  See PUBLICDOMAIN for more
+details.
+
+Happy hacking!
